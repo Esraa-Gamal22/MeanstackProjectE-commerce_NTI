@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { ProductService } from '../services/product.service';
+
 
 @Component({
   selector: 'app-products',
@@ -25,14 +25,8 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
    
-    this.filterCatProducts();
+    
   }
   
-  filterCatProducts() {
-    this.prdService
-      .getProductsByCatId(this.recivedCatId)
-      .subscribe((products) => {
-        this.filterdArray = products.data;
-      });
-  }
+  
 }
