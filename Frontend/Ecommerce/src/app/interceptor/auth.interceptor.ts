@@ -12,11 +12,11 @@ export class AuthInterceptor implements HttpInterceptor {
 
   constructor() {}
 
-  intercept(request: HttpRequest<unknown>, next: HttpHandler) {
+  intercept(request: HttpRequest<unknown>, next: HttpHandler){
     let token = localStorage.getItem("token")
-    if (token) {
+    if(token){
       request = request.clone({
-        headers: request.headers.set("Authorization", token)
+        headers : request.headers.set("Authorization",`${token}`)
       })
     }
     return next.handle(request);

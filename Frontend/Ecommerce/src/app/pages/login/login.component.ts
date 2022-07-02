@@ -1,8 +1,8 @@
+import { Token } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { GlobalService } from 'src/app/services/global.service';
-
 
 @Component({
   selector: 'app-login',
@@ -10,41 +10,37 @@ import { GlobalService } from 'src/app/services/global.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  isSubmitted: boolean = false
-  errorMsg: boolean = false
-  loginForm = new FormGroup({
-    email: new FormControl("", [Validators.required, Validators.email]),
-    password: new FormControl("", [Validators.required])
-  })
+loginForm = new FormGroup({
+  email: new FormControl("",[Validators.required , Validators.email]),
+  password: new FormControl("",[Validators.required , Validators.minLength(8)])
+})
+get email(){ return this.loginForm.get('email')}
+get password(){ return this.loginForm.get('password')}
 
-  get loginData() { 
-    return this.loginForm.controls 
-  }
-
-  constructor(private global: GlobalService, private router: Router) {
-    if (localStorage.getItem('token')) this.router.navigate([""])
-  }
-
+get loginData(){return this.loginForm.controls}
+isSubmitted= false
+errorMsg:any=null
+  constructor(private global:GlobalService, private router: Router) { }
 
   ngOnInit(): void {
   }
-
-handleSubmit() {
-    this.isSubmitted = true
-    if (this.loginForm.valid) {
-      this.global.login(this.loginForm.value).subscribe(res => {
-        if (res.data.token) {
-          localStorage.setItem("token", res.data.token)
+  handleSubmit(){
+    this.isSubmitted=true
+    console.log(this.loginForm)
+    if(this.loginForm.valid){
+      this.global.login(this.loginForm.value).subscribe(res=>{
+        console.log(res)
+        if(res.error) {this.errorMsg= res.error}
+        if(res.token){
+          localStorage.setItem("token", res.token)
           this.global.isLogin = true
-          this.router.navigateByUrl("")
+          this.router.navigate([""])
         }
-
-      }, (err) => {
-        this.errorMsg = true
-      }, () => {
+      },(err)=>{
+        console.log(err)
+      },()=>{
 
       })
     }
   }
 }
-

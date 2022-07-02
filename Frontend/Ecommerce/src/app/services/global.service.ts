@@ -9,6 +9,8 @@ export class GlobalService {
   url = "http://localhost:3000"
   public isLogin: boolean = false
   public UserData: any
+
+
   constructor(private http: HttpClient) { }
 
   register(obj: any): Observable<any> {

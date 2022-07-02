@@ -9,7 +9,5 @@ import { GlobalService } from './services/global.service';
 })
 export class AppComponent {
   title = 'Ecommerce';
-  constructor(private global : GlobalService){
-    if(localStorage.getItem("token")) this.global.isLogin = true
-  }
+  
 }

@@ -12,7 +12,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { ProductsComponent } from './pages/products/products.component';
-import { CardComponent } from './component/card/card.component';
+
+import { FormComponent } from './components/form/form.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { CardComponent } from './component/card/card.component';
     NavbarComponent,
     FooterComponent,
     ProductsComponent,
-    CardComponent
+    
+    FormComponent
   ],
   imports: [
     BrowserModule,
