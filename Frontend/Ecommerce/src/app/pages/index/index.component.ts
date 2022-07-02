@@ -28,16 +28,16 @@ export class IndexComponent implements OnInit {
     if (!this.global.isLogin) {
       this.router.navigateByUrl("login")
     }
-    // else {
-    //   this.global.addProduct(this productForm.value).subscribe(res => {
-    //     this.router.navigateByUrl("produts")
-    // }, (err) => {
-    //   this.errorMsg = true
-    // }, () => {
+  //   else {
+  //     this.global.addProduct(this productForm.value).subscribe(res => {
+  //       this.router.navigateByUrl("produts")
+  //   }, (err) => {
+  //     this.errorMsg = true
+  //   }, () => {
 
-    // })
-  }
+  //   })
+  // }
 }
 
 
-
+}

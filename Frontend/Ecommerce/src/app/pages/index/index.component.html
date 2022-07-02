@@ -1,7 +1,7 @@
-<div class="container">
+<!-- <div class="container">
     <div class="row">
         <div class="col-4 m-auto border border-light mt-5 rounded p-3">
-            <form action=""  (ngSubmit)="handleSubmit()">
+            <form action="" [formGroup]="productForm" (ngSubmit)="handleSubmit()">
                 <h1 class="col-12 text-center">product</h1>
                 <hr>
 
@@ -9,7 +9,10 @@
                     <div class="col-12">
                         <input type="text" placeholder="Title" (input)="errorMsg = false" class="form-control"
                             formControlName="title">
-                        
+                        <div class="text-danger" *ngIf="productData?.title?.invalid && isSubmitted ">
+                            <div *ngIf="productData?.title?.errors?.['required']">
+                                Title is required
+                            </div>
                         </div>
                     </div>
                     <div class="col-12">
@@ -17,22 +20,17 @@
                             formControlName="content">
                                 </textarea>
 
-                                
+                        <div class="text-danger" *ngIf="productData?.content?.invalid && isSubmitted ">
+                            <div *ngIf="productData?.content?.errors?.['required']">
+                                Content is required
+                            </div>
                         </div>
-                   
+                    </div>
                     <div class="col-12 d-flex justify-content-end">
                         <button class="btn btn-dark border border-white rounded">Submit</button>
                     </div>
-                
-           
-       
-    
-<!-- <form action="" [formGroup]="productForm" (ngSubmit)="handleSubmit()"> -->
-    <!-- <div class="text-danger" *ngIf="productData?.title?.invalid && isSubmitted ">
-        <div *ngIf="productData?.title?.errors?.['required']">
-            Title is required
-        </div> -->
-        <!-- <div class="text-danger" *ngIf="productData?.content?.invalid && isSubmitted ">
-            <div *ngIf="productData?.content?.errors?.['required']">
-                Content is required
-            </div> -->
+                </div>
+            </form>
+        </div>
+    </div>
+</div> -->

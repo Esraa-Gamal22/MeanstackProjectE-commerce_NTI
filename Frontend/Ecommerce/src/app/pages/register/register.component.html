@@ -1,7 +1,7 @@
 <div class=container>
     <div class="row">
         <div class="col-4 m-auto border border-light mt-5 rounded p-3">
-            <form action="" (ngSubmit)="handleSubmit()">
+            <form action="" [formGroup]="registerationForm" (ngSubmit)="handleSubmit()">
                 <div class="row">
                     <h1 class="col-12 text-center">Registeration</h1>
                     <hr>
@@ -77,4 +77,3 @@
     </div>
 </div>
 
-<!-- <form action="" [formGroup]="registerationForm" (ngSubmit)="handleSubmit()"> -->
