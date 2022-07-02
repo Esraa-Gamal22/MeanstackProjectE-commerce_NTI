@@ -1,16 +1,16 @@
-<div class="container mt-3  px-4">
-    <div class="row gx-2 gy-4">
-      <div class="col-3" *ngFor="let product of productsArray">
-        <div class="card">
-          <img src="assets/images/img.jpg" class="card-img-top" alt="..." />
-          <div class="float-button">
-            <a href="#" class="btn btn-dark">Add To Cart</a>
-          </div>
-          <div class="card-body">
-            <!-- <p>{{product.title}}</p>
-            <span>{{product.price}}</span> -->
-          </div>
+<div class="container mt-3 px-4">
+  <div class="row gx-2 gy-4">
+    <div class="col-3" *ngFor="let product of filterdArray">
+      <div class="card">
+        <img src="assets/images/g1.webp" class="card-img-top" alt="..." />
+        <div class="float-button">
+          
+        </div>
+        <div class="card-body">
+          <p>{{ product.productName }}</p>
+          <span>{{ product.productPrice }}</span>
         </div>
       </div>
     </div>
   </div>
+</div>
